@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>第2章 词法作用域 | 你不知道的JavaScript</title>
+    <meta name="generator" content="VuePress 1.5.1">
+    <link rel="icon" href="/you-dont-know-js/logo.png">
+    <meta name="description" content="">
+    <link rel="preload" href="/you-dont-know-js/assets/css/0.styles.93060200.css" as="style"><link rel="preload" href="/you-dont-know-js/assets/js/app.b3231626.js" as="script"><link rel="preload" href="/you-dont-know-js/assets/js/2.1e47f7dc.js" as="script"><link rel="preload" href="/you-dont-know-js/assets/js/4.27a96e2e.js" as="script"><link rel="prefetch" href="/you-dont-know-js/assets/js/10.761bf208.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/11.3cf4284a.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/12.4a8ff11e.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/13.e92f4486.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/14.69ff953c.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/15.2176a133.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/3.b8bc5cd1.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/5.127a9365.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/6.c9fe0b25.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/7.c305a95c.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/8.66f3eeef.js"><link rel="prefetch" href="/you-dont-know-js/assets/js/9.58130cbb.js">
+    <link rel="stylesheet" href="/you-dont-know-js/assets/css/0.styles.93060200.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/you-dont-know-js/" class="home-link router-link-active"><!----> <span class="site-name">你不知道的JavaScript</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/you-dont-know-js/v1/" class="nav-link router-link-active">
+  上卷
+</a></div><div class="nav-item"><a href="/you-dont-know-js/v2/" class="nav-link">
+  中卷
+</a></div><div class="nav-item"><a href="/you-dont-know-js/v3/" class="nav-link">
+  下卷
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/you-dont-know-js/v1/" class="nav-link router-link-active">
+  上卷
+</a></div><div class="nav-item"><a href="/you-dont-know-js/v2/" class="nav-link">
+  中卷
+</a></div><div class="nav-item"><a href="/you-dont-know-js/v3/" class="nav-link">
+  下卷
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>前言</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/you-dont-know-js/v1/" aria-current="page" class="sidebar-link">前言</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>第一部分 作用域和闭包</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/you-dont-know-js/v1/scope-and-closures.html" class="sidebar-link">序</a></li><li><a href="/you-dont-know-js/v1/What-is-Scope.html" class="sidebar-link">第1章 作用域是什么</a></li><li><a href="/you-dont-know-js/v1/Lexical-Scope.html" aria-current="page" class="active sidebar-link">第2章 词法作用域</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/you-dont-know-js/v1/Lexical-Scope.html#_2-1-词法阶段" class="sidebar-link">2.1 词法阶段</a></li><li class="sidebar-sub-header"><a href="/you-dont-know-js/v1/Lexical-Scope.html#_2-2-欺骗词法" class="sidebar-link">2.2 欺骗词法</a></li><li class="sidebar-sub-header"><a href="/you-dont-know-js/v1/Lexical-Scope.html#_2-3-小结" class="sidebar-link">2.3 小结</a></li></ul></li><li><a href="/you-dont-know-js/v1/Function-vs.-Block-Scope.html" class="sidebar-link">第3章 函数作用域和块作用域</a></li><li><a href="/you-dont-know-js/v1/Hoisting.html" class="sidebar-link">第4章 提升</a></li><li><a href="/you-dont-know-js/v1/Scope-Closures.html" class="sidebar-link">第5章 作用域闭包</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>第二部分 this 和对象原型</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/you-dont-know-js/v1/this-and-object-prototypes.html" class="sidebar-link">序</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="第2章-词法作用域"><a href="#第2章-词法作用域" class="header-anchor">#</a> 第2章 词法作用域</h1> <p><strong>词法作用域 ( Lexical Scope )</strong></p> <p>在第 1 章中，我们将“作用域”定义为一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。</p> <p>作用域共有两种主要的工作模型。</p> <ul><li>第一种是最为普遍的，被大多数编程语言所采用的<span class="red strong">词法作用域</span>，我们会对这种作用域进行深入讨论。</li> <li>另外一种叫作<span class="red strong">动态作用域</span>，仍有一些编程语言在使用(比如 Bash 脚本、Perl 中的一些模式等)。</li></ul> <p>附录 A 中介绍了动态作用域，在这里提到它只是为了同 JavaScript 所采用的作用域模型， 即词法作用域模型进行对比。</p> <h2 id="_2-1-词法阶段"><a href="#_2-1-词法阶段" class="header-anchor">#</a> 2.1 词法阶段</h2> <p>第 1 章介绍过，大部分标准语言编译器的第一个工作阶段叫作词法化(也叫单词化)。回忆一下，词法化的过程会对源代码中的字符进行检查，如果是有状态的解析过程，还会赋予单词语义。</p> <p>这个概念是理解词法作用域及其名称来历的基础。</p> <p>简单地说，<span class="red strong">词法作用域就是定义在词法阶段的作用域</span>。
+换句话说，词法作用域是由你在写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会<span class="red strong">保持作用域不变</span>(大部分情况下是这样的)。</p> <p>后面会介绍一些欺骗词法作用域的方法，这些方法在词法分析器处理过后依然可以修改作用域，但是这种机制可能有点难以理解。
+事实上，让词法作用域根据词法关系保持书写时的自然关系不变，是一个非常好的最佳实践。</p> <p>考虑以下代码:</p> <div class="language- extra-class"><pre class="language-text"><code>function foo(a) { 
+    var b = a * 2;
+    function bar(c) { 
+        console.log( a, b, c );
+    }
+    bar( b * 3 ); 
+}
+foo( 2 ); // 2, 4, 12
+</code></pre></div><p>在这个例子中有三个逐级嵌套的作用域。为了帮助理解，可以将它们想象成几个逐级包含的气泡。</p> <p><img src="/you-dont-know-js/assets/img/nest-scope.8e40db22.png" alt="Nest Scope"></p> <ol><li>包含着整个全局作用域，其中只有一个标识符:foo。</li> <li>包含着 foo 所创建的作用域，其中有三个标识符:a、bar 和 b。</li> <li>包含着 bar 所创建的作用域，其中只有一个标识符:c。</li></ol> <p><span class="red strong">作用域气泡由其对应的作用域块代码写在哪里决定</span>，它们是逐级包含的。
+下一章会讨论不同类型的作用域，但现在只要假设每一个函数都会创建一个新的作用域气泡就好了。</p> <p>bar 的气泡被完全包含在 foo 所创建的气泡中，唯一的原因是那里就是我们希望定义函数 bar 的位置。</p> <p>注意，这里所说的气泡是严格包含的。我们并不是在讨论文氏图这种可以跨越边界的气泡。
+换句话说，没有任何函数的气泡可以(部分地)同时出现在两个外部作用域的气泡中，就如同没有任何函数可以部分地同时出现在两个父级函数中一样。</p> <h3 id="查找"><a href="#查找" class="header-anchor">#</a> 查找</h3> <p>作用域气泡的结构和互相之间的位置关系给引擎提供了足够的位置信息，引擎用这些信息来查找标识符的位置。</p> <p>在上一个代码片段中，引擎执行 console.log(..) 声明，并查找 a、b 和 c 三个变量的引用。
+它首先从最内部的作用域，也就是 bar(..) 函数的作用域气泡开始查找。
+引擎无法在这里找到 a，因此会去上一级到所嵌套的 foo(..) 的作用域中继续查找。在这里找到了 a， 因此引擎使用了这个引用。
+对 b 来讲也是一样的。
+而对 c 来说，引擎在 bar(..) 中就找到了它。</p> <p>如果 a、c 都存在于 bar(..) 和 foo(..) 的内部，console.log(..) 就可以直接使用 bar(..) 中的变量，而无需到外面的 foo(..) 中查找。</p> <p>作用域查找会在找到第一个匹配的标识符时停止。
+在多层的嵌套作用域中可以定义同名的标识符，这叫作“<span class="red strong">遮蔽效应</span>”(<span class="red strong">内部的标识符“遮蔽”了外部的标识符</span>)。
+抛开遮蔽效应， 作用域查找始终从运行时所处的最内部作用域开始，逐级向外或者说向上进行，直到遇见第一个匹配的标识符为止。</p> <p>全局变量会自动成为全局对象(比如浏览器中的 window 对象)的属性，因此可以不直接通过全局对象的词法名称，而是间接地通过对全局对象属性的引用来对其进行访问。
+<code>window.a</code> <span class="red">通过这种技术可以访问那些被同名变量所遮蔽的全局变量</span>。但非全局的变量如果被遮蔽了，无论如何都无法被访问到。</p> <p><span class="red strong">无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处的位置决定。</span></p> <p><span class="red strong">词法作用域查找只会查找一级标识符</span>，比如 a、b 和 c。
+如果代码中引用了 foo.bar.baz， <span class="red strong">词法作用域查找只会试图查找 foo 标识符</span>，找到这个变量后，对象属性访问规则会分别接管对 bar 和 baz 属性的访问。</p> <h2 id="_2-2-欺骗词法"><a href="#_2-2-欺骗词法" class="header-anchor">#</a> 2.2 欺骗词法</h2> <p>如果词法作用域完全由写代码期间函数所声明的位置来定义，怎样才能在运行时来“修改”(也可以说欺骗)词法作用域呢?</p> <p>JavaScript 中有两种机制来实现这个目的。
+<span class="red">社区普遍认为在代码中使用这两种机制并不是什么好注意</span>。
+但是关于它们的争论通常会忽略掉最重要的点:欺骗词法作用域会导致性能下降。</p> <p>在详细解释性能问题之前，先来看看这两种机制分别是什么原理。</p> <h3 id="_2-2-1-eval"><a href="#_2-2-1-eval" class="header-anchor">#</a> 2.2.1 eval</h3> <p>JavaScript 中的 eval(..) 函数可以接受一个字符串为参数，并将其中的内容视为好像在书写时就存在于程序中这个位置的代码。
+换句话说，可以在你写的代码中用程序生成代码并运行，就好像代码是写在那个位置的一样。</p> <p>根据这个原理来理解 eval(..)，它是如何通过代码欺骗和假装成书写时(也就是词法期)代码就在那，来实现修改词法作用域环境的，这个原理就变得清晰易懂了。</p> <p>在执行 eval(..) 之后的代码时，引擎并不“知道”或“在意”前面的代码是以动态形式插入进来，并对词法作用域的环境进行修改的。引擎只会如往常地进行词法作用域查找。</p> <p>考虑以下代码:</p> <div class="language- extra-class"><pre class="language-text"><code>function foo(str, a) { 
+    eval( str ); // 欺骗! 
+    console.log( a, b );
+}
+var b = 2;
+foo( &quot;var b = 3;&quot;, 1 ); // 1, 3
+</code></pre></div><p>eval(..) 调用中的 <code>&quot;var b = 3;&quot;</code> 这段代码会被当作本来就在那里一样来处理。
+由于那段代码声明了一个新的变量 b，因此它对已经存在的 foo(..) 的词法作用域进行了修改。
+事实上，和前面提到的原理一样，这段代码实际上在 foo(..) 内部创建了一个变量 b，并遮蔽了外部(全局)作用域中的同名变量。</p> <p>当 console.log(..) 被执行时，会在 foo(..) 的内部同时找到 a 和 b，但是永远也无法找到外部的 b。因此会输出“1, 3”而不是正常情况下会输出的“1, 2”。</p> <p>在这个例子中，为了展示的方便和简洁，我们传递进去的“代码”字符串是固定不变的。
+而在实际情况中，<span class="red strong">可以非常容易地根据程序逻辑动态地将字符拼接在一起之后再传递进去</span>。
+<span class="red strong">eval(..) 通常被用来执行动态创建的代码</span>，因为像例子中这样动态地执行一段固定字符所组成的代码，并没有比直接将代码写在那里更有好处。</p> <p>默认情况下，如果 eval(..) 中所执行的代码包含有一个或多个声明(无论是变量还是函数)，就会对 eval(..) 所处的词法作用域进行修改。
+技术上，通过一些技巧(已经超出我们的讨论范围)可以间接调用 eval(..) 来使其运行在全局作用域中，并对全局作用域进行修改。但无论何种情况，eval(..) 都可以在运行期修改书写期的词法作用域。</p> <p><span class="red strong">在严格模式的程序中，eval(..) 在运行时有其自己的词法作用域，意味着其中的声明无法修改所在的作用域</span>。</p> <div class="language- extra-class"><pre class="language-text"><code>function foo(str) { 
+    &quot;use strict&quot;;
+    eval( str );
+    console.log( a ); // ReferenceError: a is not defined 
+}
+foo( &quot;var a = 2&quot; );
+</code></pre></div><p>JavaScript中还有其他一些功能效果和eval(..)很相似。
+setTimeout(..)和 setInterval(..) 的第一个参数可以是字符串，字符串的内容可以被解释为一段动态生成的函数代码。
+这些功能已经过时且并不被提倡。不要使用它们!</p> <p>new Function(..) 函数的行为也很类似，最后一个参数可以接受代码字符串，并将其转化为动态生成的函数(前面的参数是这个新生成的函数的形参)。
+这种构建函数的语法比 eval(..) 略微安全一些，但也要尽量避免使用。</p> <p>在程序中动态生成代码的使用场景非常罕见，因为它所带来的好处无法抵消性能上的损失。</p> <p>2.2.2 with</p> <p>JavaScript 中另一个难以掌握(并且现在也不推荐使用)的用来欺骗词法作用域的功能是 with 关键字。
+可以有很多方法来解释 <code>with</code>，在这里我选择从这个角度来解释它:
+它如何同被它所影响的词法作用域进行交互。</p> <p><code>with</code> 通常被当作重复引用同一个对象中的多个属性的快捷方式，可以不需要重复引用对象本身。</p> <p>比如:</p> <div class="language- extra-class"><pre class="language-text"><code>var obj = { 
+    a: 1,
+    b: 2,
+    c: 3 
+};
+// 单调乏味的重复 &quot;obj&quot; 
+obj.a = 2;
+obj.b = 3;
+obj.c = 4;
+// 简单的快捷方式 
+with (obj) {
+    a = 3;
+    b = 4;
+    c = 5;
+}
+</code></pre></div><p>但实际上这不仅仅是为了方便地访问对象属性。考虑如下代码:</p> <div class="language- extra-class"><pre class="language-text"><code>function foo(obj) { 
+    with (obj) {
+        a = 2; 
+    }
+}
+var o1 = { 
+    a: 3
+};
+var o2 = { 
+    b: 3
+};
+foo( o1 );
+console.log( o1.a ); // 2
+foo( o2 );
+console.log( o2.a ); // undefined
+console.log( a ); // 2——不好，a 被泄漏到全局作用域上了!
+</code></pre></div><p>这个例子中创建了 o1 和 o2 两个对象。其中一个具有 a 属性，另外一个没有。
+foo(..) 函数接受一个obj参数，该参数是一个对象引用，并对这个对象引用执行了with(obj) {..}。
+在 with 块内部，我们写的代码看起来只是对变量 a 进行简单的词法引用，实际上就是一个 LHS 引用(查看第 1 章)，并将 2 赋值给它。</p> <p>当我们将 o1 传递进去，a=2 赋值操作找到了 o1.a 并将 2 赋值给它，这在后面的 console. log(o1.a) 中可以体现。
+而当 o2 传递进去，o2 并没有 a 属性，<span class="red">因此不会创建这个属性</span>， o2.a 保持 undefined。</p> <p>但是可以注意到一个奇怪的副作用，实际上 a = 2 赋值操作创建了一个全局的变量 a。这是怎么回事?</p> <p><code>with</code> 可以将一个没有或有多个属性的对象处理为一个完全隔离的词法作用域，因此这个对象的属性也会被处理为定义在这个作用域中的词法标识符。</p> <p>尽管 <code>with</code> 块可以将一个对象处理为词法作用域，但是这个块内部正常的 var 声明并不会被限制在这个块的作用域中，而是被添加到 <code>with</code> 所处的函数作用域中。</p> <p><code>eval(..)</code> 函数如果接受了含有一个或多个声明的代码，就会修改其所处的词法作用域，而 <code>with</code> 声明实际上是根据你传递给它的对象凭空创建了一个全新的词法作用域。</p> <p>可以这样理解，当我们传递 <code>o1</code> 给 <code>with</code> 时，<code>with</code> 所声明的作用域是 <code>o1</code>，而这个作用域中含有一个同 <code>o1.a</code> 属性相符的标识符。
+但当我们将 <code>o2</code> 作为作用域时，其中并没有 <code>a</code> 标识符， 因此进行了正常的 LHS 标识符查找(查看第 1 章)。</p> <p><code>o2</code> 的作用域、<code>foo(..)</code> 的作用域和全局作用域中都没有找到标识符 <code>a</code>，因此当 <code>a=2</code> 执行时，自动创建了一个全局变量(因为是非严格模式)。</p> <p><code>with</code> 这种将对象及其属性放进一个作用域并同时分配标识符的行为很让人费解。但为了说明我们所看到的现象，这是我能给出的最直白的解释了。</p> <p>另外一个不推荐使用 <code>eval(..)</code> 和 <code>with</code> 的原因是会被严格模式所影响(限制)。<code>with</code> 被完全禁止，而在保留核心功能的前提下，间接或非安全地使用 <code>eval(..)</code> 也被禁止了。</p> <h3 id="_2-2-3-性能"><a href="#_2-2-3-性能" class="header-anchor">#</a> 2.2.3 性能</h3> <p><code>eval(..)</code> 和 <code>with</code> 会在运行时修改或创建新的作用域，以此来欺骗其他在书写时定义的词法作用域。</p> <p>你可能会问，那又怎样呢?如果它们能实现更复杂的功能，并且代码更具有扩展性，难道不是非常好的功能吗?答案是否定的。</p> <p>JavaScript <span class="red strong">引擎会在编译阶段进行数项的性能优化</span>。
+<span class="red strong">其中有些优化依赖于能够根据代码的词法进行静态分析，并预先确定所有变量和函数的定义位置</span>，才能在执行过程中快速找到标识符。</p> <p>但如果引擎在代码中发现了 <code>eval(..)</code> 或 <code>with</code>，它只能简单地假设关于标识符位置的判断都是无效的，因为无法在词法分析阶段明确知道 <code>eval(..)</code> 会接收到什么代码，
+这些代码会如何对作用域进行修改，也无法知道传递给 <code>with</code> 用来创建新词法作用域的对象的内容到底是什么。</p> <p>最悲观的情况是如果出现了 <code>eval(..)</code> 或 <code>with</code>，所有的优化可能都是无意义的，因此最简单的做法就是完全不做任何优化。</p> <p>如果代码中大量使用 <code>eval(..)</code> 或 <code>with</code>，那么运行起来一定会变得非常慢。
+无论引擎多聪明，试图将这些悲观情况的副作用限制在最小范围内，也无法避免如果没有这些优化，代码会运行得更慢这个事实。</p> <h2 id="_2-3-小结"><a href="#_2-3-小结" class="header-anchor">#</a> 2.3 小结</h2> <p>词法作用域意味着作用域是由书写代码时函数声明的位置来决定的。
+编译的词法分析阶段基本能够知道全部标识符在哪里以及是如何声明的，从而能够预测在执行过程中如何对它们进行查找。</p> <p>JavaScript 中有两个机制可以“欺骗”词法作用域:<code>eval(..)</code> 和 <code>with</code>。
+前者可以对一段包含一个或多个声明的“代码”字符串进行演算，并借此来修改已经存在的词法作用域(在运行时)。
+后者本质上是通过将一个对象的引用当作作用域来处理，将对象的属性当作作用域中的标识符来处理，从而创建了一个新的词法作用域(同样是在运行时)。</p> <p>这两个机制的副作用是引擎无法在编译时对作用域查找进行优化，因为引擎只能谨慎地认为这样的优化是无效的。
+使用这其中任何一个机制都将导致代码运行变慢。不要使用它们。</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/you-dont-know-js/v1/What-is-Scope.html" class="prev">
+        第1章 作用域是什么
+      </a></span> <span class="next"><a href="/you-dont-know-js/v1/Function-vs.-Block-Scope.html">
+        第3章 函数作用域和块作用域
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/you-dont-know-js/assets/js/app.b3231626.js" defer></script><script src="/you-dont-know-js/assets/js/2.1e47f7dc.js" defer></script><script src="/you-dont-know-js/assets/js/4.27a96e2e.js" defer></script>
+  </body>
+</html>
